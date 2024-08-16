@@ -15,17 +15,14 @@ def string_info(a):
 
 def is_contains(a, b):
     count_calls()
-    string = str(a)
-    list_to_search = [b]
-    n = 0
-    c = False
-    while n < len(b):
-        if b[n].lower() != a.lower():
-            n += 1
-            continue
-        else:
-            c = True
-            n += 1
+    string = a
+    list_to_search = b
+    for i in range(len(list_to_search)):
+        list_to_search[i] = list_to_search[i].lower()
+    if string.lower() in list_to_search:
+        c = True
+    else:
+        c = False
     return c
 
 
@@ -34,3 +31,5 @@ print(string_info('Armageddon'))
 print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN']))
 print(is_contains('cycle', ['recycling', 'cyclic']))
 print(calls)
+# Переписал функцию is_contains так, чтобы было ближе к заданию,
+# иначе смысл переменных string и list_to_search утрачивается
