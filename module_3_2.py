@@ -9,7 +9,7 @@ def mail_exist(str1):
 
 def send_email(message, recipient, sender="university.help@gmail.com"):
     if mail_exist(sender) and mail_exist(recipient):
-        if sender == 'university.help@gmail.com':
+        if sender == 'university.help@gmail.com' and sender != recipient:
             print('"Письмо успешно отправлено с адреса', sender, 'на адрес', recipient, '."')
         elif sender == recipient:
             print("Нельзя отправить письмо самому себе!")
