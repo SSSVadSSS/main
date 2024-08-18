@@ -1,8 +1,16 @@
-print('Введите целое число от 3 до 20 : ')
+def ranges(a, n=1):  # Функция кратности по степеням 10 (для сдвига результата)
+    while a >= 10 ** n:
+        n += 1
+        continue
+    a = n
+    return a
+
+
+print('Введите целое число больше 2: ')
 n = int(input())
-if 20 > n > 3:
+if n > 2:
     parol = list()  # Список пар для контроля за повторами
-    code = int()
+    code = int(0)
     for i in range(1, n):
         for j in range(2, n):
             k = i + j
@@ -11,10 +19,9 @@ if 20 > n > 3:
                     continue
                 else:
                     parol.append([i, j])  # добавляем в список пару удовлетворяющую условиям
-                    if i < 10 and j < 10:  # обеспечиваем вывод результата
-                        code = code * 100 + i * 10 + j
-                    elif i < 10:
-                        code = code * 1000 + i * 100 + j
+                    ri = ranges(i)
+                    rj = ranges(j)
+                    code = code * (10 ** (ri + rj)) + i * (10 ** rj) + j  # рассчитываем результат
     print('result = ', code)
 else:
     print('Введено неправильное число')
