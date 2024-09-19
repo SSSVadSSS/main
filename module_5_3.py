@@ -14,20 +14,21 @@ class House:
         return self.number_of_floors
 
     def __str__(self):
-        return str(f'Название: {self.name}, "Количество этажей: {self.number_of_floors}')
+        return str(f'Название: {self.name}, Количество этажей: {self.number_of_floors}')
 
     def __eq__(self, other):
-        if isinstance(self.number_of_floors, int) and isinstance(other.number_of_floors, int):
-            return self.number_of_floors == other.number_of_floors
+        if isinstance(other, House):
+            if isinstance(other.number_of_floors, int) and isinstance(self.number_of_floors, int):                                                                                               int):
+                return self.number_of_floors == other.number_of_floors
         else:
-            print("Значение аргумента не соответствует типу")
+            return print("Неверный параметр")
 
     def __add__(self, value):
         if isinstance(self.number_of_floors, int) and isinstance(value, int):
             self.number_of_floors += value
         else:
             print("Значение аргумента не соответствует типу")
-        return self
+            return self
 
     def __lt__(self, other):
         if isinstance(self.number_of_floors, int) and isinstance(other.number_of_floors, int):
